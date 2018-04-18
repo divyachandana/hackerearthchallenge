@@ -1,0 +1,111 @@
+.header-styles{
+padding:10px;
+max-height:100px;
+}
+
+.card-style {
+  border-radius:6px;
+  position: relative;
+  box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
+  margin-bottom:10%;
+}
+
+.card-style .image {
+
+  max-height: 100px;
+  max-width: 200px;
+  padding:5px;
+  display: inline-block;
+}
+
+.card-style .card-right {
+  max-height: 195px;
+  max-width: 365px;
+  display: inline-block;
+  vertical-align:middle;
+}
+
+.card-style .heading {
+  color:#5EA5EC;
+  font-size: 20px;
+}
+.card-style .link{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-style .like {
+  cursor: pointer;
+  height: 40px;
+  width:40px;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  background-color: #D2D2D2;
+  z-index: 7346;
+  border-radius: 7px;
+}
+
+.icon-center {
+  top:12px !important;
+  left:6px;
+}
+
+.light-grey-shade {
+  color : #AEB4BA;
+}
+
+.sortby {
+  border: solid 1px #0080ff;
+  background-color: #b3d9ff;
+  height: 60px;
+  border-radius:40px;
+}
+
+.sortby .heading {
+  color: #0080ff;
+  /* font-size: 25px; */
+}
+
+.total-likes {
+  border:solid 1px #29a329;
+  background-color: #C4F3A8;
+  height:60px;
+  border-radius:40px;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button-blue:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+}
+
+.button-blue {
+    background-color: #008CBA;
+    color: white;
+    border: 2px solid #008CBA;
+}
+
+.button-grey {
+    background-color: #e7e7e7;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+
+.button-grey:hover {background-color: white;border: 2px solid #e7e7e7}

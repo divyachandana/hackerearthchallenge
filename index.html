@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="hackerEarth">
+<head>
+  <!-- Angular 1.4.8 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+  <!-- Angular 1.4.8 -->
+
+  <!-- stylesheets -->
+  <link  rel="stylesheet" href="style.css"/>
+  <!-- stylesheets -->
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap -->
+</head>
+<body ng-controller="hackerEarthStatsController">
+  <img class="header-styles" src="https://hackerearth.global.ssl.fastly.net/static/hackerearth/images/logo/HE_logo.png"/>
+
+  <div class="container-fluid">
+    <div class="row" style="padding-bottom:2%;padding-top:1%;">
+      <div class="col-md-4">
+        <form ng-submit="searchTags(search);" style="display:inline-block">
+        <!-- <label class="child-label" for="existing-phases">Existing:&nbsp;&nbsp;</label> -->
+        <input type="text" ng-model="search" list="names" class="form-control">
+        <datalist id="names"ng-model="name">
+          <!-- <option value=''>-- select an option --</option> -->
+          <option ng-repeat="option in uniqueTags | filter:search" value="{{option}}"></option>
+
+        </datalist>
+        <!-- <button type="submit">Search by Tags</button> -->
+        <button type="submit" name="addRow" class="button button-blue">Search by Tags</button>
+
+       </form>
+       <button  class="button button-grey" ng-click="clearSearch()">Clear Search</button>
+      </div>
+      <div class="col-md-4 sortby">
+        <h3 class="heading" style="display:inline-block;text-align:center;">Sort By</h3>
+
+          <label class="radio-inline"><input type="radio" name="sortby" ng-click="filterData(predicate)" ng-model="predicate" value="rating" style="font-size:18px;"/>Rating</label>
+          <label class="radio-inline"><input type="radio" name="sortby" ng-click="filterData(predicate)" ng-model="predicate" value="likes" style="font-size:18px;"/>Like</label>
+      </div>
+      <!-- <div class="col-md-2"></div> -->
+      <div class="col-md-4 total-likes">
+        <div style="padding-top:3%;font-size:26px;">
+          Total Likes : {{totalLikes}} | API Hits : {{totalHits}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div ng-repeat="d in mainData track by $index" class="col-md-6">
+            <div class="card-style">
+              <div class="image">
+                <img style="width:185px;height:150px;border-radius:20px;" src="{{d.imagelink}}"/>
+              </div>
+
+              <div class="card-right">
+                <div class="light-grey-shade">
+                  {{d.title}}
+                </div>
+                <p class="light-grey-shade">
+                  Solved By: {{d.solvedby}} | {{d.rating}}
+                </p>
+                <p class="light-grey-shade">
+                  <a href="#">
+                    <span class="glyphicon glyphicon-home"></span>
+                  </a>{{d.problemgivenby}}
+                </p>
+                <p class="light-grey-shade">
+                  <a href="#">
+                    <span class="glyphicon glyphicon-tag"></span>
+                  </a>{{d.tags}}
+                </p>
+                <p  class="link">
+                  <a>
+            <span class="glyphicon glyphicon-link"></span>
+          </a>Link:<a target="_blank" ng-click="clickApiLinks($index)" href="{{d.link}}" >{{d.link}}</a>
+                </p>
+                <a class="like" ng-click="ClickLike($index)">
+                    <span class="glyphicon glyphicon-thumbs-up icon-center">{{d.likes}}</span>
+                </a>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
